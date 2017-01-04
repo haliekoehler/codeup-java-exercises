@@ -57,8 +57,6 @@ public class ScannerDemo {
         double width;
         double length;
         boolean keepMeasuring = true;
-        String yes = "yes";
-        String no = "no";
         String userContinue;
 
         do {
