@@ -57,23 +57,27 @@ public class BasicArithmetic {
 
     }
 
-    // Add two Ints
+    // Add
     public static  int add(int a, int b) {
         return a + b;
     }
 
-    // Sub two Ints
+    // Subtract
     public static  int sub(int a, int b){
         return a - b;
     }
 
-    // Mult two Ints
+    // Multiply
     public static int mult(int a, int b){
         return a * b;
     }
 
-    // Div two Ints
+    // Divide
     public static double div(int a, int b){
+        if(b ==0){
+            System.out.println("Cannot divide by 0");
+            return 0;
+        }
         return (double) a / b;
     }
 }

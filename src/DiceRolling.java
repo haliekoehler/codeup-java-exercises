@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -17,15 +18,16 @@ public class DiceRolling {
 
         Scanner sc = new Scanner(System.in);
 
+        String userContinue;
         String userRoll;
         int userNumber;
 
-
-        System.out.print("Choose number of sides for a pair of dice: "); // prompt user for sides of dice
-        userNumber = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Type 'roll' to roll the dice!"); // trigger randomNumber function
-        userRoll = sc.next().trim();
+        do {
+            System.out.print("Choose number of sides for a pair of dice: "); // prompt user for sides of dice
+            userNumber = sc.nextInt();
+            sc.nextLine();
+            System.out.print("Type 'roll' to roll the dice!"); // trigger randomNumber function
+            userRoll = sc.next().trim();
 
             // makes sure user typed 'roll' properly
             if (userRoll.equals("roll")) {
@@ -34,14 +36,26 @@ public class DiceRolling {
             } else {
                 System.out.println("Something went wrong.");
             }
+
+            System.out.println("Would you like to do this again? yes/no");
+            userContinue = sc.next();
+        } while (userContinue.equals("yes"));
     }
 
     // get random number based on "userNumber"
     public static int randomNumber (int a){
-        int max = a;
 
-        int random = (int)(Math.random() * max + 1);
-        return random;
+        // OPTION 1 ---- Math.random
+//        int max = a;
+//
+//        int random = (int)(Math.random() * max + 1);
+//        return random;
+
+        // OPTION 2 ---- Random class
+        Random rand = new Random();
+
+        int number = rand.nextInt(a) + 1;
+        return number;
     }
 
 }
