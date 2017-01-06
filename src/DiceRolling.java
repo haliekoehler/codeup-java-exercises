@@ -31,8 +31,14 @@ public class DiceRolling {
 
             // makes sure user typed 'roll' properly
             if (userRoll.equals("roll")) {
-                System.out.println("Dice 1: " + randomNumber(userNumber));
-                System.out.println("Dice 2: " + randomNumber(userNumber));
+                int dieOne = randomNumber(userNumber);
+                int dieTwo = randomNumber(userNumber);
+
+                System.out.println("----------------");
+                System.out.println("Die 1: " + dieOne);
+                System.out.println("Die 2: " + dieTwo);
+                System.out.println("----------------");
+                System.out.println("Total: " + (dieOne + dieTwo));
             } else {
                 System.out.println("Something went wrong.");
             }
