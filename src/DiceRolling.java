@@ -22,11 +22,15 @@ public class DiceRolling {
             userRoll = sc.next().trim();
 
             if (userRoll.equals("roll")) {
-                int dieOne = dice.getRandomNumber(userNumber);
-                int dieTwo = dice.getRandomNumber(userNumber);
+                int dieOne = dice.roll(userNumber);
+                int dieTwo = dice.roll(userNumber);
 
+                System.out.println();
                 System.out.println("Die one: " + dieOne);
                 System.out.println("Die two: " + dieTwo);
+                System.out.println();
+                System.out.println("The total of both equals " + (dieOne + dieTwo));
+                System.out.println();
 
             } else {
                 System.out.println("Something went wrong...");
@@ -35,5 +39,7 @@ public class DiceRolling {
             System.out.print("Would you like to do this again? yes/no");
             userContinue = sc.next().trim();
         } while (userContinue.equals("yes"));
+
+        System.out.println("Thanks for using the Dice Roller App! Bye!");
     }
 }
