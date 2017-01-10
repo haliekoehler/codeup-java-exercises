@@ -13,13 +13,19 @@ public class ValidatorTestApp {
         System.out.println("Welcome to the Validator Test Application!");
         System.out.println(); // Skip a line
 
-        System.out.println("--- Int Test ---");
-        val.getIntWithinRange("Enter an Integer between -100 and 100", -100, 100);
+        // Test Integers and Integer Range
+        int userInt = val.getInt("Enter any Integer");
+        System.out.println("You entered " + userInt);
+        int userIntRange = val.getIntWithinRange("Enter Integer between -100 and 100", -100, 100);
+        System.out.println("You entered " + userIntRange + " and it's within range!");
 
         System.out.println(); // Skip a line
 
-        System.out.println("--- Double Test ---");
-        val.getDoubleWithinRange("Enter a Double between -100.0 and 100.0", -100.0, 100.0);
+        // Test Doubles and Double Range
+        double userDouble = val.getDouble("Enter a Double");
+        System.out.println("You entered " + userDouble);
+        double userDoubleRange = val.getDoubleWithinRange("Enter a Double between -100.0 and 100.0", -100.0, 100.0);
+        System.out.println("You entered " + userDoubleRange + " and it's within range!");
 
         System.out.println(); // Skip a line
 
@@ -27,3 +33,5 @@ public class ValidatorTestApp {
     }
 
 }
+
+

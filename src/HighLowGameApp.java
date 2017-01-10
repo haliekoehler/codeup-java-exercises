@@ -3,6 +3,7 @@ import java.util.Scanner;
 /**
  * Created by HKoehler on 1/10/17.
  */
+
 public class HighLowGameApp {
 
     public static void main(String[] args) {
@@ -37,13 +38,6 @@ public class HighLowGameApp {
         }
     }
 
-//    // Generate random number between 1 - 100 for compNumber
-//    private static int getRandomNumber (){
-//
-//        int number = (int)Math.random() * 100 + 1;
-//        return number;
-//    }
-
     // Computer picks random number between 1 - 100
     private static int compTurn (){
         int compNumber = (int)Math.ceil(Math.random() * 100); // computer picks random number
@@ -57,10 +51,9 @@ public class HighLowGameApp {
     private static void userTurn (Scanner scan, Validator validator, int compNumber){
         int userGuess;
 
-        userGuess = scan.nextInt();
-
-//        validator.getDoubleWithinRange("Guess a number between 1 - 100: ", 1, 100);
 //        userGuess = scan.nextInt();
+
+        userGuess = validator.getIntWithinRange("Guess a number between 1 - 100: ", 1, 100);
 
         if (userGuess == compNumber){
             System.out.println("GOOD GUESS! YOU WIN!");
