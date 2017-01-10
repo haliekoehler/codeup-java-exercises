@@ -38,7 +38,6 @@ public class ExceptionDemo {
         Scanner scan = new Scanner(System.in);
         int userInteger;
 
-        System.out.println(prompt);
         try {
             userInteger = scan.nextInt();
         } catch (InputMismatchException e){
