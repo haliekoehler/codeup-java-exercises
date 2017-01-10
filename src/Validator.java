@@ -1,4 +1,5 @@
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -6,35 +7,26 @@ import java.util.Scanner;
  */
 public class Validator {
 
-    String prompt;
-    int userInt;
-    double userDouble;
+    private int userInt;
+    private double userDouble;
 
     Scanner sc = new Scanner(System.in);
 
     public Validator (Scanner sc){
-
+        this.sc = sc;
     }
 
     public int getInt (String prompt){
-        int userInt;
-
-        try {
-            userInt = sc.nextInt();
-        } catch (InputMismatchException e){
-            System.out.println("Your input must be an integer, nothing else!");
-            return getInt(prompt);
-        }
-
-        return getIntWithinRande(prompt, -100, 100);
+        return userInt;
     }
 
-    public int getIntWithinRande (String prompt, int min, int max){
+    public int getIntWithinRange (String prompt, int min, int max){
 
-        min = -100;
-        max = 100;
+        System.out.println(prompt);
+
         String toHigh = "Int is greater than " + max + ". Try Again.";
         String toLow = "Int is less than " + min + ". Try Again.";
+        String notInt = "That is not an integer. Try Again.";
         String validated = "VALIDATED!";
 
         try {
@@ -42,28 +34,60 @@ public class Validator {
             if ((userInt >= min && userInt <= max)){
                 System.out.println(validated);
             } else if (userInt > max) {
-                throw new IllegalArgumentException(toHigh);
-                getIntWithinRande(prompt, min, max);
+                System.out.println(toHigh);
+                getIntWithinRange(prompt, min, max);
             } else if (userInt < min) {
-                throw new IllegalArgumentException(toLow);
-                getIntWithinRande(prompt, min, max);
+                System.out.println(toLow);
+                getIntWithinRange(prompt, min, max);
             }
-        } catch (Exception e){
-            getInt("Something went totally wrong. Please, retry...");
+        } catch (InputMismatchException e){
+            sc.next(); // discard unwanted info
+            System.out.println(notInt);
+            getIntWithinRange(prompt, min, max);
+        } catch (NoSuchElementException | IllegalStateException e){
+            System.out.println("Something went wrong... Try Again");
+            getIntWithinRange(prompt, min, max);
         }
 
         return userInt;
     }
 
     public double getDouble (String prompt){
-
+        return userDouble;
     }
 
-    public double getDoubledWithinRange (String prompt, double min, double max){
+    public double getDoubleWithinRange (String prompt, double min, double max){
+        System.out.println(prompt);
 
+        String toHigh = "Double is greater than " + max + ". Try Again.";
+        String toLow = "Double is less than " + min + ". Try Again.";
+        String notInt = "That is not an Double. Try Again.";
+        String validated = "VALIDATED!";
+
+        try {
+            userDouble = sc.nextDouble();
+            if ((userDouble >= min && userDouble <= max)){
+                System.out.println(validated);
+            } else if (userDouble > max) {
+                System.out.println(toHigh);
+                getDoubleWithinRange(prompt, min, max);
+            } else if (userDouble < min) {
+                System.out.println(toLow);
+                getDoubleWithinRange(prompt, min, max);
+            }
+        } catch (InputMismatchException e){
+            sc.next(); // discard unwanted info
+            System.out.println(notInt);
+            getDoubleWithinRange(prompt, min, max);
+        } catch (NoSuchElementException | IllegalStateException e){
+            System.out.println("Something went wrong... Try Again");
+            getDoubleWithinRange(prompt, min, max);
+        }
+
+        return userDouble;
     }
 
-    public String getRequiredString (String prompt) {
-
-    }
+//    public String getRequiredString (String prompt) {
+//
+//    }
 }
