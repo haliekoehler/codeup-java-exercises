@@ -12,14 +12,18 @@ public class Validator {
 
     Scanner sc = new Scanner(System.in);
 
+    // Constructor
     public Validator (Scanner sc){
         this.sc = sc;
     }
 
+    // get userInt
     public int getInt (String prompt){
         return userInt;
     }
 
+
+    // validate passed int within a certain range
     public int getIntWithinRange (String prompt, int min, int max){
 
         System.out.println(prompt);
@@ -52,10 +56,12 @@ public class Validator {
         return userInt;
     }
 
+    // get userDouble
     public double getDouble (String prompt){
         return userDouble;
     }
 
+    // validate passed double within certain range
     public double getDoubleWithinRange (String prompt, double min, double max){
         System.out.println(prompt);
 
@@ -87,7 +93,17 @@ public class Validator {
         return userDouble;
     }
 
-//    public String getRequiredString (String prompt) {
+//    // validate passed string
+//    public String getRequiredString (String input, Scanner scan) {
 //
-//    }
-}
+//        String userString = scan.next();
+//
+//        if (userString.equalsIgnoreCase(input)){
+//            return userString;
+//        } else {
+//            System.out.println("Incorrect input. Please Try Again.");
+//            getRequiredString(input, scan);
+//        }
+//
+//        return userString;
+    }
