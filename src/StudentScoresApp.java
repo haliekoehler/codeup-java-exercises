@@ -37,7 +37,8 @@ public class StudentScoresApp {
 
             firstName = validate.getWord("Student #" + (i + 1) + " First Name: ");
             lastName = validate.getWord("Student #" + (i + 1) + " Last Name: ");
-            score = validate.getIntWithinRange("Student #" + (i + 1) + "Score : ", 0, 100);
+            score = validate.getIntWithinRange("Student #" + (i + 1) + " Score : ", 0, 100);
+            System.out.println();
 
             Student x = new Student (firstName, lastName, score);
 
@@ -48,21 +49,20 @@ public class StudentScoresApp {
         Collections.sort(students, new Comparator<Student>() {
             @Override
             public int compare(Student student1, Student student2) {
-                return student2.getLastName().compareTo(student1.getLastName());
+                return student1.getLastName().compareTo(student2.getLastName());
             }
         });
 
-        // reverse order since the above is going Z -> A for some reason...
-        Collections.reverse(students);
-
-        // Print out Student List
+        // Print out Student List2
         System.out.println("");
-        System.out.println("----- Student List -----");
+        System.out.println("------------- Student List --------------");
+        System.out.println("Last Name      First Name      Score    ");
+        System.out.println("-----------------------------------------");
 
         for (int i = 0; i <students.size(); i++){
-            System.out.println("Student - " + students.get(i).getLastName() + ", " + students.get(i).getFirstName() + " | Score - " + students.get(i).getAge());
+            System.out.printf("%-14s %-15s %-19s", students.get(i).getLastName(), students.get(i).getFirstName(), students.get(i).getAge());
+            System.out.println(); // new line
         }
-
 
         return (students);
     }
@@ -72,7 +72,7 @@ public class StudentScoresApp {
 
 
 
-
+    // TODO Student Scores App Exercise - Instructions
     // The application accepts last name, first name, and score for one or more students and stores the results in an array.
     // The application prints the student name and their score alphabetically by last name.
     // The program should implement a class called Student that stores last name, first name, and score for each student.
