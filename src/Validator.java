@@ -17,7 +17,7 @@ public class Validator {
 
     // Get userInt
     public int getInt (String prompt){
-        System.out.println(prompt);
+        System.out.print(prompt);
         int userInt;
 
         try{
@@ -79,18 +79,33 @@ public class Validator {
         return userDouble;
     }
 
-    // Get String
-//    public String getString(String prompt){
-//        try {
-//            String userString;
-//            System.out.println(prompt);
-//            userString = sc.nextLine();
-//        } catch (Exception e){
-//            System.out.println("Something went wrong. Try again");
-//            getString(prompt);
-//        }
-//        return userString;
-//    }
+    // Get Single Word
+    public String getWord(String prompt){
+        String userString;
+        System.out.print(prompt);
+        try{
+            userString = sc.next();
+        } catch (Exception e){
+            System.out.println("Something went wrong, Try again.");
+            return getWord(prompt);
+        }
+
+        return userString;
+    }
+
+     // Get String
+    public String getString(String prompt){
+        String userString;
+        System.out.print(prompt);
+        try{
+            userString = sc.nextLine();
+        } catch (Exception e){
+            System.out.println("Something went wrong. Try again");
+            return getString(prompt);
+        }
+
+        return userString;
+    }
 
     // Validate passed string
     public String getRequiredString (String input, Scanner scan) {
