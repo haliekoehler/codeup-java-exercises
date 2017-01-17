@@ -24,6 +24,7 @@ public class Validator {
             userInt = sc.nextInt();
         } catch (InputMismatchException e){
             System.out.println("That is not an Integer");
+            sc.next();
             return getInt(prompt);
         }
 
@@ -42,6 +43,7 @@ public class Validator {
             }
         } catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
+            sc.next();
             return getIntWithinRange(prompt, min, max);
         }
 
@@ -50,13 +52,15 @@ public class Validator {
 
     // Get userDouble
     public double getDouble (String prompt){
+
         double userDouble;
         System.out.println(prompt);
 
         try{
             userDouble = sc.nextDouble();
-        } catch (InputMismatchException e){
-            System.out.println("That is not an Integer. Try Again");
+        } catch (Exception e){
+            System.out.println("ERROR - Invalid input");
+            sc.next();
             return getDouble(prompt);
         }
         return userDouble;
@@ -73,7 +77,8 @@ public class Validator {
                 throw new IllegalArgumentException("Double is out of Range. Try Again.");
             }
         } catch (NoSuchElementException | IllegalStateException | IllegalArgumentException e){
-            System.out.println("Something went wrong... Try Again");
+            System.out.println("ERROR - Invalid input");
+            sc.next();
             return getDoubleWithinRange(prompt, min, max);
         }
         return userDouble;
@@ -86,7 +91,8 @@ public class Validator {
         try{
             userString = sc.next();
         } catch (Exception e){
-            System.out.println("Something went wrong, Try again.");
+            System.out.println("ERROR - Invalid input");
+            sc.next();
             return getWord(prompt);
         }
 
