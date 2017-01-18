@@ -13,7 +13,6 @@ public class StudentScoresApp {
 
         buildArray(validate, getNumberOfStudents(validate));
 
-
     }
 
 
