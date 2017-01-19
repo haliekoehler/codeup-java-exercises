@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * Created by HKoehler on 1/18/17.
  */
@@ -12,11 +14,13 @@ public class Player {
 
     // Hold valid Roshambo selections
     public enum Roshambo {
-        ROCK, PAPER, SCISSORS
+        ROCK, PAPER, SCISSORS;
+
+
     }
 
     // Generate Roshambo selection as a String
-    public static String generateRoshamboString (Roshambo roshambo){
+    public String generateRoshamboString (Roshambo roshambo){
         String selection = "";
 
         switch(roshambo){
@@ -34,6 +38,11 @@ public class Player {
         }
 
         return selection;
+    }
+
+    public Roshambo randomRoshambo (){
+        int pick = new Random().nextInt(Roshambo.values().length);
+        return Roshambo.values()[pick];
     }
 
 }
