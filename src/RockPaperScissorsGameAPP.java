@@ -1,5 +1,6 @@
 import sun.plugin2.gluegen.runtime.CPU;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
@@ -57,7 +58,7 @@ public class RockPaperScissorsGameAPP {
                 loses++;
             }
 
-            System.out.println(); // skip line
+            print().println(); // skip line
             // Ask to play again
             System.out.print("Would you like to play again? yes / no  ");
             userContinue = scan.next();
@@ -72,6 +73,10 @@ public class RockPaperScissorsGameAPP {
         System.out.println(CPUOpponent.name + ": " + loses);
 
         System.out.println("Thank you for playing! Goodbye!");
+    }
+
+    private static PrintStream print() {
+        return System.out;
     }
 
 
